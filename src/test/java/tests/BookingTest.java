@@ -22,8 +22,8 @@ import resources.Utils;
 public class BookingTest {
 	LoginData data = new LoginData();
 	BookingData booking = new BookingData();
-	static String Token;
-	static int BookingId;
+	String Token;
+	int BookingId;
 
 	@Test(priority = 1)
 	public void createToken() throws IOException {
@@ -112,7 +112,7 @@ public class BookingTest {
 		System.out.println("**********************************************************************************************Delete Created Booking");
 
 		String deleteBooking = given().log().all().spec(Specification.request())
-				.header("Cookie", "token " + Token + "").when().delete("booking/" + BookingId + "").then().log().all()
+				.header("Cookie", "token=" +Token+"").when().delete("booking/" + BookingId + "").then().log().all()
 				.extract().response().asString();
 
 		System.out.println("deleteBookingdeleteBookingdeleteBookingdeleteBooking" + deleteBooking);
