@@ -1,0 +1,33 @@
+Request method:	GET
+Request URI:	https://restful-booker.herokuapp.com/booking/96
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+HTTP/1.1 200 OK
+Server: Cowboy
+Connection: keep-alive
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 165
+Etag: W/"a5-7NfZm3VYJT1zLV30U+fNS1UvwUI"
+Date: Tue, 13 Dec 2022 06:21:05 GMT
+Via: 1.1 vegur
+
+{
+    "firstname": "POJO",
+    "lastname": "Test",
+    "totalprice": 1234,
+    "depositpaid": true,
+    "bookingdates": {
+        "checkin": "2022-01-01",
+        "checkout": "2022-01-01"
+    },
+    "additionalneeds": "Lunch"
+}

@@ -2,28 +2,28 @@
 <testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-12-12T13:08:59 IST" name="Default suite" finished-at="2022-12-12T13:09:09 IST" duration-ms="9323">
+  <suite started-at="2022-12-13T11:51:26 IST" name="Suite" finished-at="2022-12-13T11:51:36 IST" duration-ms="10141">
     <groups>
     </groups>
-    <test started-at="2022-12-12T13:08:59 IST" name="Default test" finished-at="2022-12-12T13:09:09 IST" duration-ms="9323">
+    <test started-at="2022-12-13T11:51:26 IST" name="Test" finished-at="2022-12-13T11:51:36 IST" duration-ms="10141">
       <class name="tests.BookingTest">
-        <test-method signature="createToken()[pri:1, instance:tests.BookingTest@67080771]" started-at="2022-12-12T13:08:59 IST" name="createToken" finished-at="2022-12-12T13:09:04 IST" duration-ms="5203" status="PASS">
+        <test-method signature="createToken()[pri:1, instance:tests.BookingTest@21129f1f]" started-at="2022-12-13T11:51:26 IST" name="createToken" finished-at="2022-12-13T11:51:31 IST" duration-ms="5083" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- createToken -->
-        <test-method signature="CreateBooking()[pri:2, instance:tests.BookingTest@67080771]" started-at="2022-12-12T13:09:04 IST" name="CreateBooking" finished-at="2022-12-12T13:09:06 IST" duration-ms="1463" status="PASS">
+        <test-method signature="createBooking()[pri:2, instance:tests.BookingTest@21129f1f]" started-at="2022-12-13T11:51:31 IST" name="createBooking" finished-at="2022-12-13T11:51:33 IST" duration-ms="2562" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- CreateBooking -->
-        <test-method signature="GetCreatedBooking()[pri:3, instance:tests.BookingTest@67080771]" started-at="2022-12-12T13:09:06 IST" name="GetCreatedBooking" finished-at="2022-12-12T13:09:07 IST" duration-ms="1138" status="PASS">
+        </test-method> <!-- createBooking -->
+        <test-method signature="getCreatedBooking()[pri:3, instance:tests.BookingTest@21129f1f]" started-at="2022-12-13T11:51:33 IST" name="getCreatedBooking" finished-at="2022-12-13T11:51:34 IST" duration-ms="1223" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- GetCreatedBooking -->
-        <test-method signature="DeleteCreatedBooking()[pri:4, instance:tests.BookingTest@67080771]" started-at="2022-12-12T13:09:07 IST" name="DeleteCreatedBooking" finished-at="2022-12-12T13:09:09 IST" duration-ms="1475" status="PASS">
+        </test-method> <!-- getCreatedBooking -->
+        <test-method signature="deleteCreatedBooking()[pri:4, instance:tests.BookingTest@21129f1f]" started-at="2022-12-13T11:51:34 IST" name="deleteCreatedBooking" finished-at="2022-12-13T11:51:36 IST" duration-ms="1224" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- DeleteCreatedBooking -->
+        </test-method> <!-- deleteCreatedBooking -->
       </class> <!-- tests.BookingTest -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
 </testng-results>

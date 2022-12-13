@@ -5,7 +5,7 @@
     <classes>
       <class name="tests.BookingTest">
         <methods>
-          <include name="createToken"/>
+          <include name="DeleteCreatedBooking"/>
         </methods>
       </class> <!-- tests.BookingTest -->
     </classes>

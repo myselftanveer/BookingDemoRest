@@ -23,7 +23,7 @@ public class BookingTest {
 	LoginData data = new LoginData();
 	BookingData booking = new BookingData();
 	String Token;
-	int BookingId;
+	static int BookingId;
 
 	@Test(priority = 1)
 	public void createToken() throws IOException {
@@ -69,12 +69,6 @@ public class BookingTest {
 				.extract().response().asString();
 		Response res = create.when().post("/auth");
 
-		System.out.println("res.getStatusCode()========" + res.getStatusCode());
-		System.out.println("res.getStatusLine()========" + res.getStatusLine());
-		System.out.println("res.getServer()========" + res.getHeaders().getValue("server"));
-		System.out.println("res.getContentType()========" + res.getHeaders().getValue("Content-Type"));
-		System.out.println("res.getTime()========" + res.getTime());
-
 		assertEquals(res.getStatusCode(), 200);
 		assertEquals(res.getStatusLine(), "HTTP/1.1 200 OK");
 		assertEquals("Cowboy", res.getHeaders().getValue("server"));
@@ -85,37 +79,63 @@ public class BookingTest {
 	}
 
 	@Test(priority = 2)
-	public void CreateBooking() throws IOException {
+	public void createBooking() throws IOException {
 
+		PrintStream addBooking = Utils.printLog("./reports/createBooking.txt");
 		System.out.println("**************************************************************************************************Create Booking");
-		String createBooking = given().log().all().spec(Specification.request()).body(booking.bookPayload()).when()
-				.post("/booking").then().log().all().assertThat().statusCode(200).extract().response().asString();
-		System.out.println(createBooking + "createBookingcreateBookingcreateBookingcreateBooking");
+		RequestSpecification create = given().log().all().spec(Specification.request()).body(booking.bookPayload())
+				.filter(RequestLoggingFilter.logRequestTo(addBooking))
+				.filter(ResponseLoggingFilter.logResponseTo(addBooking));
+		String createBooking = create.when().post("/booking").then().log().all().assertThat().statusCode(200)
+				.body("booking.firstname", equalTo("POJO")).extract().response().asString();
+		System.out.println("CREATE==========="+createBooking);
+		
+		
 
 		JsonPath js = Utils.convertRawToJson(createBooking);
 		BookingId = js.get("bookingid");
 		System.out.println(BookingId);
+		
+		Response createBook = create.when().post("/booking");
+//		System.out.println("Status Code========" + createBook.getStatusCode());
+//		System.out.println("Status Line========" + createBook.getStatusLine());
+//		System.out.println("Server========" + createBook.getHeaders().getValue("server"));
+//		System.out.println("Content Type========" + createBook.getHeaders().getValue("Content-Type"));
+//		System.out.println("Response Time========" + createBook.getTime());
+		
+		assertEquals(createBook.getStatusCode(), 200);
+		assertEquals(createBook.getStatusLine(), "HTTP/1.1 200 OK");
+		assertEquals("Cowboy", createBook.getHeaders().getValue("server"));
 	}
 
 	@Test(priority = 3)
-	public void GetCreatedBooking() throws IOException {
+	public void getCreatedBooking() throws IOException {
 
+		PrintStream getCreatedBooking = Utils.printLog("./reports/getBooking.txt");
 		System.out.println("**********************************************************************************************Get Created Booking");
-		String getBooking = given().log().all().spec(Specification.request()).when().get("booking/" + BookingId + "")
-				.then().log().all().assertThat().statusCode(200).extract().response().asString();
-		System.out.println("Get Booking" + getBooking);
+		RequestSpecification get = given().log().all().spec(Specification.request())
+				.filter(RequestLoggingFilter.logRequestTo(getCreatedBooking))
+				.filter(ResponseLoggingFilter.logResponseTo(getCreatedBooking));
+		String getBooking=get.when().get("booking/" + BookingId + "")
+				.then().log().all().assertThat().statusCode(200).header("server", equalTo("Cowboy"))
+				.header("Content-Type", equalTo("application/json; charset=utf-8")).body("firstname", equalTo("POJO")).extract().response().asString();
+		System.out.println("GET Booking==========="+getBooking);
 	}
 
 	@Test(priority = 4)
-	public void DeleteCreatedBooking() throws IOException {
+	public void deleteCreatedBooking() throws IOException {
 
+		PrintStream deleteCreatedBooking = Utils.printLog("./reports/deleteBooking.txt");
 		System.out.println("**********************************************************************************************Delete Created Booking");
 
-		String deleteBooking = given().log().all().spec(Specification.request())
-				.header("Cookie", "token=" +Token+"").when().delete("booking/" + BookingId + "").then().log().all()
+		RequestSpecification delete = given().log().all().spec(Specification.request()).header("Cookie", "token=" +Token+"")
+				.filter(RequestLoggingFilter.logRequestTo(deleteCreatedBooking))
+				.filter(ResponseLoggingFilter.logResponseTo(deleteCreatedBooking));
+		String deleteBooking=delete.when().delete("booking/" + BookingId + "").then().log().all()
 				.extract().response().asString();
 
-		System.out.println("deleteBookingdeleteBookingdeleteBookingdeleteBooking" + deleteBooking);
+		System.out.println("DELETE Booking==========="+deleteBooking);
+
 	}
 
 }

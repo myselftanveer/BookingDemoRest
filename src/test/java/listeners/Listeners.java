@@ -11,7 +11,7 @@ import com.aventstack.extentreports.Status;
 public class Listeners implements ITestListener {
 
 	public static ExtentTest test;
-	ExtentReports extent = extentReport.EcommApiExtentReport.getEcommApiReport();
+	ExtentReports extent = extentReport.BookingExtentReport.getEcommApiReport();
 	
 
 	public void onTestStart(ITestResult result) {

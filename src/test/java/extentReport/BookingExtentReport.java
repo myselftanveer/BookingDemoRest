@@ -4,7 +4,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
-public class EcommApiExtentReport {
+public class BookingExtentReport {
 	
 	static ExtentReports extent;
 

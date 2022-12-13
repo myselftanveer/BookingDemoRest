@@ -20,12 +20,12 @@ Connection: keep-alive
 X-Powered-By: Express
 Content-Type: application/json; charset=utf-8
 Content-Length: 27
-Etag: W/"1b-MMbVZSVzAv96IYt+ARu7lN+65C4"
-Date: Mon, 12 Dec 2022 07:37:09 GMT
+Etag: W/"1b-swwI3BKUTaPrXJ6JCrLiuKiREl0"
+Date: Tue, 13 Dec 2022 06:21:00 GMT
 Via: 1.1 vegur
 
 {
-    "token": "0e2ca145277dd56"
+    "token": "4ee242528b52c96"
 }
 Request method:	POST
 Request URI:	https://restful-booker.herokuapp.com/auth
@@ -49,10 +49,10 @@ Connection: keep-alive
 X-Powered-By: Express
 Content-Type: application/json; charset=utf-8
 Content-Length: 27
-Etag: W/"1b-Pu5P7RQr3Wvo18fZGiiQaeFrgug"
-Date: Mon, 12 Dec 2022 07:37:10 GMT
+Etag: W/"1b-3WWxSLa9Bjub3EUb9WoUhPH1TJI"
+Date: Tue, 13 Dec 2022 06:21:01 GMT
 Via: 1.1 vegur
 
 {
-    "token": "0b58ebaa5ade279"
+    "token": "5978a7098d516aa"
 }
